@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import { clerkMiddleware } from "@clerk/express";
 import { connectDB } from "./lib/db.js";
 // routes
 import userRoute from "./routes/user.route.js";
@@ -15,6 +16,11 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 app.use(express.json()); // to parse req.body
+app.use(
+  clerkMiddleware({
+    publishableKey: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+  })
+);
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
