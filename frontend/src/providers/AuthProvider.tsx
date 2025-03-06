@@ -1,7 +1,7 @@
 import { axiosInstance } from "@/lib/axios"
 import { useAuth } from "@clerk/clerk-react"
 import { useEffect, useState } from "react"
-import {Loader} from "lucide-react"
+import { Loader } from "lucide-react"
 
 const AuthProvider = ({children} : {children: React.ReactNode}) => {
   const {getToken, userId} =  useAuth()
