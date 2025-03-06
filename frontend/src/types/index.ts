@@ -6,6 +6,8 @@ export interface ISong {
   audioUrl: string;
   duration: number;
   albumId?: string | null;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface IAlbum {

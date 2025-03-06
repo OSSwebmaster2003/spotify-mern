@@ -4,6 +4,7 @@ import MainLayout from "./layout/MainLayout";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
 import HomePage from "./pages/HomePage";
 import ChatPage from "./pages/ChatPage";
+import AlbumPage from "./pages/AlbumPage";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/album/:albumId" element={<AlbumPage />} />
         </Route>
       </Routes>
     </>
