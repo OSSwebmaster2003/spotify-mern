@@ -6,7 +6,7 @@ import { BookHeadphones, Music, Users } from "lucide-react";
 import { useEffect } from "react";
 
 const RightSidebar = () => {
-  const { loading, users, fetchUsers } = useChatStore();
+  const { users, fetchUsers } = useChatStore();
   const { user } = useUser();
 
   const isPlaying = false;

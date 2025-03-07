@@ -15,7 +15,7 @@ export const useChatStore = create<IChatStore>((set) => ({
   error: null,
 
   fetchUsers: async () => {
-    set({ loading: true });
+    set({ loading: true, error: null });
     try {
       const res = await axiosInstance.get("/users");
       set({ users: res.data });
