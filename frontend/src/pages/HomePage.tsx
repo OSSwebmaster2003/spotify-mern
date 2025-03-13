@@ -3,6 +3,7 @@ import SectionGrid from "@/components/SectionGrid";
 import TopBar from "@/components/TopBar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useMusicStore } from "@/stores/useMusicStore";
+import { usePlayerStore } from "@/stores/usePlayerStore";
 import { useEffect } from "react";
 
 const HomePage = () => {
@@ -15,6 +16,19 @@ const HomePage = () => {
     fetchTrensingSongs,
     madeForYouSongs,
   } = useMusicStore();
+
+  const { initializeQueue } = usePlayerStore();
+
+  useEffect(() => {
+    if (
+      madeForYouSongs.length &&
+      trendingSongs.length &&
+      featuredSongs.length
+    ) {
+      const allSongs = [...featuredSongs, ...madeForYouSongs, ...trendingSongs];
+      initializeQueue(allSongs);
+    }
+  }, [initializeQueue, madeForYouSongs, featuredSongs, trendingSongs]);
 
   useEffect(() => {
     fetchMadeForYouSongs();
