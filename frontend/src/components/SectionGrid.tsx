@@ -1,6 +1,7 @@
 import { ISong } from "@/types";
 import SectionGridSkeleton from "./skeletons/SectionGridSkeleton";
 import { Button } from "./ui/button";
+import PlayButton from "./PlayButton";
 
 interface ISectionGrid {
   loading?: boolean;
@@ -35,8 +36,8 @@ const SectionGrid = ({ title, songs, loading }: ISectionGrid) => {
                   alt={song.title}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                {/* play button here  */}
               </div>
+              <PlayButton song={song} />
             </div>
             <h3 className="font-medium mb-2 truncate">{song.title}</h3>
             <p className="text-sm text-zinc-400 truncate">{song.artist}</p>
