@@ -1,10 +1,12 @@
 import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import MainLayout from "./layout/MainLayout";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
 import HomePage from "./pages/HomePage";
 import ChatPage from "./pages/ChatPage";
 import AlbumPage from "./pages/AlbumPage";
+import AdminPage from "./pages/AdminPage";
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
           }
         />
         <Route path="/auth-callback" element={<AuthCallbackPage />} />
+        <Route path="/admin" element={<AdminPage />} />
 
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
@@ -26,6 +29,8 @@ const App = () => {
           <Route path="/album/:albumId" element={<AlbumPage />} />
         </Route>
       </Routes>
+
+      <Toaster />
     </>
   );
 };

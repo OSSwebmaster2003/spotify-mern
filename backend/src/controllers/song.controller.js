@@ -2,7 +2,8 @@ import { Song } from "../models/song.model.js";
 
 export const getAllSongs = async (req, res, next) => {
   try {
-    const songs = await Song.find({ createdAt: -1 }); // -1 => sorts from newest to oldest
+    debugger;
+    const songs = await Song.find();
     res.status(200).json(songs);
   } catch (error) {
     console.log("Error getting all songs in song controller", error);
